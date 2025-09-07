@@ -1,39 +1,28 @@
 <h1 align="center">🎯 Generative AI Developer Roadmap</h1>
 
 <p align="center">
-  <strong>A 6-month step-by-step learning roadmap to become a Generative AI Developer.</strong><br/>
+  <strong>A 6-month step-by-step roadmap to become a Generative AI Developer</strong><br/>
   Learn LLMs, RAG, LangChain, Agents, and Production AI while building 10+ projects.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Duration-24%20Weeks-blue" alt="Duration" />
-  <img src="https://img.shields.io/badge/Projects-10%2B-green" alt="Projects" />
-  <img src="https://img.shields.io/badge/Skills-OpenAI%2C%20LangChain%2C%20FastAPI-yellow" alt="Skills" />
+  <img src="https://img.shields.io/badge/Phases-9-brightgreen" alt="Phases" />
+  <img src="https://img.shields.io/badge/Projects-10%2B-yellow" alt="Projects" />
+  <img src="https://img.shields.io/badge/Skills-OpenAI%2C%20LangChain%2C%20FastAPI-red" alt="Skills" />
 </p>
 
 ---
 
 ## 📌 Overview
 
-This roadmap is divided into **9 phases** + **bonus advanced topics**, guiding you week by week:
-
-- Foundations
-- Prompt Engineering
-- LangChain Essentials
-- Retrieval-Augmented Generation (RAG)
-- Agents & Tools
-- LangGraph & Multi-Agent Systems
-- API Development & Web Integration
-- Model Customization
-- Deployment & Production AI
-- Bonus: Advanced Topics  
+This roadmap is divided into **9 phases** plus **bonus advanced topics**, guiding you week by week.  
 
 By the end, you will be capable of building full-stack AI apps and be ready for **GenAI Engineer / AI Product Developer roles**.
 
 ---
 
-## 🗂️ Phase 1: Foundations (Week 1–2)
-
+## 🗂️ Phase 1: Foundations (Week 1–2)  
 **Goal:** Build strong basics of GenAI & set up your environment.
 
 ### Week 1
@@ -48,8 +37,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 2: Prompt Engineering (Week 3–4)
-
+## 🗂️ Phase 2: Prompt Engineering (Week 3–4)  
 **Goal:** Learn how to interact with LLMs effectively.
 
 ### Week 3
@@ -62,8 +50,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 3: LangChain Essentials (Week 5–6)
-
+## 🗂️ Phase 3: LangChain Essentials (Week 5–6)  
 **Goal:** Learn LangChain basics & work with documents.
 
 ### Week 5
@@ -75,8 +62,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 4: RAG (Week 7–9)
-
+## 🗂️ Phase 4: Retrieval-Augmented Generation (RAG) (Week 7–9)  
 **Goal:** Connect LLMs with your knowledge base.
 
 ### Week 7
@@ -85,16 +71,13 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ### Week 8
 - 🎯 **Project 4:** Resume Analyzer Bot  
-  - Upload resume → Suggest suitable jobs  
 
 ### Week 9
 - 🎯 **Project 5:** YouTube Video Q&A Bot  
-  - Extract transcript → Create embeddings → Answer questions  
 
 ---
 
-## 🗂️ Phase 5: Agents & Tools (Week 10–12)
-
+## 🗂️ Phase 5: Agents & Tools (Week 10–12)  
 **Goal:** Build AI agents using external tools.
 
 ### Week 10
@@ -109,8 +92,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 6: LangGraph & Multi-Agent Systems (Week 13–14)
-
+## 🗂️ Phase 6: LangGraph & Multi-Agent Systems (Week 13–14)  
 **Goal:** Build systems with multiple collaborating agents.
 
 ### Week 13
@@ -122,8 +104,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 7: API Development & Web Integration (Week 15–17)
-
+## 🗂️ Phase 7: API Development & Web Integration (Week 15–17)  
 **Goal:** Serve LLM apps via APIs & integrate frontend.
 
 ### Week 15
@@ -138,8 +119,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 8: Model Customization (Week 18)
-
+## 🗂️ Phase 8: Model Customization (Week 18)  
 **Goal:** Adapt models to users/domains.
 
 - 🧠 Learn: Personalization techniques  
@@ -148,8 +128,7 @@ By the end, you will be capable of building full-stack AI apps and be ready for 
 
 ---
 
-## 🗂️ Phase 9: Deployment & Production AI (Week 19–21)
-
+## 🗂️ Phase 9: Deployment & Production AI (Week 19–21)  
 **Goal:** Make AI apps production-ready.
 
 ### Week 19
@@ -197,4 +176,6 @@ By following this roadmap, you will:
 
 ---
 
-<p align="center">🔥 Stay consistent, build projects, and share your work on GitHub/LinkedIn!</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Keep_Learning-🔥-red" alt="Motivation Badge"/>
+</p>
