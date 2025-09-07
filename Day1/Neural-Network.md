@@ -53,3 +53,4 @@ If you train a neural network with cat 🐱 and dog 🐶 images:
 
 A **Neural Network** is an **AI system that mimics the brain**, built from layers of connected neurons.  
 It **learns patterns from data** and uses them to **predict, generate, or classify information**.  
+    
