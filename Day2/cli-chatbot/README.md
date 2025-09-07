@@ -28,7 +28,7 @@
 ## 📦 Tech Stack  
 
 - [Node.js](https://nodejs.org/)  
-- [OpenAI (OpenRouter API)](https://openrouter.ai)  
+- [OpenRouter API](https://openrouter.ai) (via OpenAI client)  
 - [chalk](https://www.npmjs.com/package/chalk) – terminal colors  
 - [cli-spinners](https://www.npmjs.com/package/cli-spinners) – spinner animations  
 - [log-update](https://www.npmjs.com/package/log-update) – live terminal rendering  
@@ -38,76 +38,92 @@
 
 ## ⚙️ Installation  
 
-1. Clone the repo:  
+1. **Clone the repo**  
    ```bash
    git clone https://github.com/your-username/cli-chatbot.git
    cd cli-chatbot
-2. Install dependencies:
+   ```
 
-    ```bash
-    npm install openai chalk cli-spinners log-update dotenv readline
+2. **Install dependencies**  
+   ```bash
+   npm install openai chalk cli-spinners log-update dotenv readline
+   ```
 
+3. **Set up your API key**  
+   Create a `.env` file in the root directory:  
+   ```ini
+   OPENROUTER_API_KEY=your_api_key_here
+   ```
 
-3. Create a .env file in the root directory:
+---
 
-    ```.env
-    OPENROUTER_API_KEY=your_api_key_here
+## 🚀 Usage  
 
-🚀 Usage
-
-Run the chatbot:
-
+Run the chatbot with:  
 ```bash
 node index.js
+```
 
-Example Session:
+### Example Session  
+
+```
 🎉 CLI Chatbot started! Type 'exit' to quit.
-
 🤖 Bot: Hey there! 👋 How can I help you today?
 🟡 You: Tell me a joke
-🤖 Bot: Why don’t programmers like nature?
+🤖 Bot: Why don’t programmers like nature?  
 Because it has too many bugs! 🐛
 🟡 You:
+```
 
-📂 Project Structure
+---
+
+## 📂 Project Structure  
+
+```
 cli-chatbot/
 │── index.js          # Main chatbot code
 │── package.json      # Dependencies & scripts
 │── .env              # API key (ignored in git)
 │── README.md         # Project documentation
+```
 
-🛠️ Customization
+---
 
-Change model in index.js:
+## 🛠️ Customization  
 
-model: "mistralai/mistral-7b-instruct:free"
+- **Change AI model** inside `index.js`:  
+  ```js
+  model: "mistralai/mistral-7b-instruct:free"
+  ```
 
+- **Update chatbot personality** by editing the system role:  
+  ```js
+  { role: "system", content: "You are a helpful assistant." }
+  ```
 
-Update chatbot personality in the system role:
+---
 
-{ role: "system", content: "You are a helpful assistant." }
+## 🔑 API Key Setup  
 
-🔑 API Key Setup
+1. Get a free key from [OpenRouter](https://openrouter.ai).  
+2. Add it to `.env`:  
+   ```ini
+   OPENROUTER_API_KEY=sk-xxxxxxx
+   ```
 
-Get a free key from OpenRouter
-.
+---
 
-Add it to .env:
+## 🌟 Future Improvements  
 
-OPENROUTER_API_KEY=sk-xxxxxxx
+- 📜 Save chat history to a `chat.log` file  
+- 🎨 Add themes (dark / neon mode)  
+- 🧠 Support for multiple AI models  
+- 🌐 Optional internet-connected responses  
 
-🌟 Future Improvements
+---
 
-📜 Save chat history to a chat.log file
+## 📜 License  
 
-🎨 Add themes (dark / neon mode)
+MIT License © 2025  
 
-🧠 Support for multiple AI models
-
-🌐 Optional internet-connected responses
-
-📜 License
-
-MIT License © 2025
-
-<p align="center">Built with ❤️ using Node.js + OpenRouter API</p> ```
+<p align="center">Built with ❤️ using Node.js + OpenRouter API</p>
