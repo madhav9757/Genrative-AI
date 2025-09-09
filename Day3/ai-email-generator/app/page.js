@@ -159,8 +159,8 @@ export default function EmailGenerator() {
               <ul className="text-sm text-blue-800 space-y-2">
                 <li>• Be specific about what you need or want to communicate</li>
                 <li>• Include relevant context and deadlines if applicable</li>
-                <li>• Mention any actions you've already taken</li>
-                <li>• Consider who you're writing to when choosing tone</li>
+                <li>{`• Mention any actions you've already taken`}</li>
+                <li>{`• Consider who you're writing to when choosing tone`}</li>
               </ul>
             </div>
           </div>
