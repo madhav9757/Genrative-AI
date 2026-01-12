@@ -1,18 +1,33 @@
+import { InferenceClient } from "@huggingface/inference";
 import "dotenv/config";
-import { textToImage } from "@huggingface/inference";
-import fs from "fs";
 
-async function generateImage() {
-  const image = await textToImage({
-    model: "stabilityai/stable-diffusion-xl-base-1.0",
-    inputs: "Astronaut in a jungle, cold color palette, muted colors, detailed, 8k",
-    accessToken: process.env.HF_TOKEN,
-  });
+const hf = new InferenceClient(process.env.HF_TOKEN);
+const MODEL = "HuggingFaceH4/zephyr-7b-beta";
 
-  const buffer = Buffer.from(await image.arrayBuffer());
-  fs.writeFileSync("output.png", buffer);
+export async function generateAnswer(context, question) {
 
-  console.log("✅ Image generated successfully");
+  try {
+    const result = await hf.textGeneration({
+      model: MODEL,
+      inputs: "hey wsp",
+      parameters: {
+        max_new_tokens: 256,
+        temperature: 0.2,
+        top_p: 0.9,
+        repetition_penalty: 1.1,
+      },
+    });
+
+    let answer = result.generated_text || "";
+
+    answer = answer
+      .replace(prompt, "")
+      .replace(/<\/s>/g, "")
+      .trim();
+
+    return answer || "I don't have enough information to answer that.";
+  } catch (err) {
+    console.error("LLM error:", err.message);
+    return "I encountered an error while processing your question.";
+  }
 }
-
-generateImage();

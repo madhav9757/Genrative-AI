@@ -12,11 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@huggingface/inference": "^4.13.5",
+    "@openrouter/sdk": "^0.3.12",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "multer": "^2.0.2",
     "node-fetch": "^3.3.2",
+    "ollama": "^0.6.3",
     "unpdf": "^1.4.0"
   }
 }

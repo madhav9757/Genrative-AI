@@ -1,60 +1,50 @@
 import express from "express";
-import { searchVectors } from "../db/vectorStore.js";
+import { searchVectors, normalizeVector } from "../db/vectorStore.js";
 import { generateAnswer } from "../services/llm.service.js";
 import { InferenceClient } from "@huggingface/inference";
 import "dotenv/config";
 
 const router = express.Router();
-
-// Get question embedding
 const hf = new InferenceClient(process.env.HF_TOKEN);
 const MODEL = "sentence-transformers/all-MiniLM-L6-v2";
 
 router.post("/", async (req, res) => {
   try {
     const { question } = req.body;
-    if (!question)
-      return res.status(400).json({ error: "Question is required" });
+    if (!question) return res.status(400).json({ error: "Question is required" });
 
-    const embeddingRaw = await embedQuery(question);
-    const queryEmbedding = Array.isArray(embeddingRaw[0])
-      ? embeddingRaw[0]
-      : embeddingRaw;
+    console.log(`\n💬 Query: "${question}"`);
 
-    if (!queryEmbedding || queryEmbedding.length !== 384) {
-      return res.status(500).json({ error: "Invalid embedding" });
+    // 1. Get Query Embedding
+    const embeddingRaw = await hf.featureExtraction({ model: MODEL, inputs: question });
+    const queryVector = Array.isArray(embeddingRaw[0]) ? embeddingRaw[0] : embeddingRaw;
+
+    // 2. Search Store
+    const results = searchVectors(queryVector, 4);
+    console.log(`🔍 Retrieved ${results.length} relevant context chunks`);
+
+    if (results.length === 0) {
+      return res.json({ answer: "I have no documents to reference. Please upload a PDF first.", sources: [] });
     }
 
-    const normalizedQuery = normalizeVector(queryEmbedding);
-
-    const results = searchVectors(normalizedQuery, 10);
-    if (!results.length) {
-      return res.json({ answer: "No relevant info found.", sources: [] });
-    }
-
-    const context = results
-      .map((r, i) => `Source ${i + 1}:\n${r.text.slice(0, 500)}`)
-      .join("\n\n");
-
+    // 3. Generate Answer
+    const context = results.map((r, i) => `[Doc ${i + 1}]: ${r.text}`).join("\n\n");
     const answer = await generateAnswer(context, question);
+
+    console.log("✅ Response generated successfully\n");
 
     res.json({
       answer,
       sources: results.map((r, i) => ({
         id: i + 1,
-        preview: r.text.slice(0, 120) + "...",
-        relevance: r.score,
+        preview: r.text.slice(0, 100) + "...",
+        score: r.score.toFixed(4)
       })),
     });
   } catch (err) {
-    console.error("Chat error:", err.message);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("❌ Chat Route Error:", err.message);
+    res.status(500).json({ error: "Failed to process chat request" });
   }
 });
-
-function normalizeVector(vector) {
-  const norm = Math.sqrt(vector.reduce((sum, v) => sum + v * v, 0));
-  return vector.map((v) => v / norm);
-}
 
 export default router;
